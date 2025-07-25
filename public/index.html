@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Deep Learning Hub</title>
+    <meta name="description" content="A comprehensive collection of awesome deep learning resources, papers, frameworks, datasets, and tools">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>Awesome DL Hub</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#explore" class="nav-link">Explore</a>
+                <a href="#stats" class="nav-link">Statistics</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Awesome Deep Learning Hub
+                    <span class="gradient-text">🚀</span>
+                </h1>
+                <p class="hero-description">
+                    A comprehensive, curated collection of the most important deep learning resources.
+                    Discover breakthrough papers, cutting-edge frameworks, essential datasets, and powerful tools.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-resources">20+</span>
+                        <span class="stat-label">Resources</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-categories">5+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="recently-added">5+</span>
+                        <span class="stat-label">Recent</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('explore')">
+                        <i class="fas fa-rocket"></i>
+                        Explore Resources
+                    </button>
+                    <button class="btn btn-secondary" onclick="openGitHub()">
+                        <i class="fab fa-github"></i>
+                        Star on GitHub
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section id="explore" class="explore">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Resources</h2>
+                <p class="section-description">
+                    Browse through our curated collection of deep learning resources
+                </p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search resources..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="papers">Papers</button>
+                    <button class="filter-btn" data-category="frameworks">Frameworks</button>
+                    <button class="filter-btn" data-category="datasets">Datasets</button>
+                    <button class="filter-btn" data-category="tools">Tools</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Resources -->
+            <div class="featured-section">
+                <h3 class="featured-title">
+                    <i class="fas fa-star"></i>
+                    Featured Resources
+                </h3>
+                <div class="featured-grid" id="featured-resources">
+                    <!-- Featured resources will be populated here -->
+                </div>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="resources-section">
+                <div class="resources-header">
+                    <h3>All Resources</h3>
+                    <div class="sort-options">
+                        <select id="sort-select" class="sort-select">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="citations">Most Cited</option>
+                            <option value="stars">Most Stars</option>
+                            <option value="title">Alphabetical</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="resources-grid" id="resources-grid">
+                    <!-- Resources will be populated here -->
+                </div>
+                <div class="load-more-container">
+                    <button class="btn btn-secondary" id="load-more-btn" style="display: none;">
+                        Load More Resources
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Statistics</h2>
+                <p class="section-description">Overview of our resource collection</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="papers-count">0</h3>
+                        <p>Research Papers</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="frameworks-count">0</h3>
+                        <p>Frameworks</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="datasets-count">0</h3>
+                        <p>Datasets</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="tools-count">0</h3>
+                        <p>Tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About Awesome DL Hub</h2>
+                <p class="about-text">
+                    Welcome to the most comprehensive collection of deep learning resources on the web. 
+                    Our mission is to democratize access to high-quality deep learning knowledge by curating 
+                    the most important papers, frameworks, datasets, and tools in the field.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-cubes"></i>
+                        <h3>Curated Content</h3>
+                        <p>Hand-picked resources by ML experts</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Regularly Updated</h3>
+                        <p>Fresh content added weekly</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-search"></i>
+                        <h3>Easy Discovery</h3>
+                        <p>Advanced search and filtering</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Driven</h3>
+                        <p>Contributions welcome from everyone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Awesome DL Hub</h3>
+                    <p>Making deep learning resources accessible to everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterByCategory('papers')">Research Papers</a></li>
+                        <li><a href="#" onclick="filterByCategory('frameworks')">Frameworks</a></li>
+                        <li><a href="#" onclick="filterByCategory('datasets')">Datasets</a></li>
+                        <li><a href="#" onclick="filterByCategory('tools')">Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Awesome DL Hub. Made with ❤️ for the deep learning community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Indicator -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
